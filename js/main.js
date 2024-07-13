@@ -114,3 +114,12 @@ posts.forEach((elem) => {
           </div>
         </div>`;
 });
+
+document.querySelectorAll(".js-like-button").forEach((likeButton) => {
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.add("like-button--liked");
+    let postId = likeButton.getAttribute("data-postid");
+    let likesCounter = document.querySelector(`#like-counter-${postId}`);
+    likesCounter.innerText = parseInt(likesCounter.innerText) + 1;
+  });
+});
